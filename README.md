@@ -9,6 +9,8 @@ And finally weights are assigned to the various experts using a gating network(k
 
 ## Running the code
 
+The code has been tested for `Python 3.7` and `PyTorch v1.3`.
+
 For training the model
 
 - Clone the repository and go to the repo.
