@@ -60,11 +60,11 @@ def get_transformation(dataset):
 
 def EM_loss():
     '''
-    I am still not able to get the notation specified in the paper as it is a bit confusing how they have
-    calculated the posterior probabilities.
-    Also the updation step they have used is just simply iteration based rather than gradient based which
+    I am still not able to get the notation specified in the paper for calculating EM loss as it is a bit confusing how they have
+    calculated the posterior probabilities in equation (5).
+    Also the updation step for the expert and gating weights they have used is just simply iteration based rather than gradient based which
     is also pretty weird.
 
     Also Cross Entropy would also work in this particular case as the model is a classification model and
-    I think that the gradient based method also solves the MLE optimization problem as specified in the paper.
+    I think that the gradient based method also solves the MLE optimization problem(for which EM algorithm is suggested) as specified in the paper.
     '''
