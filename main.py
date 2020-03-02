@@ -3,7 +3,6 @@ from argparse import ArgumentParser
 from testing import validation
 from train import train
 from test import test
-from validation import validate
 
 
 def get_args():
@@ -14,10 +13,10 @@ def get_args():
     parser.add_argument('--train_split', type=float, default=0.8)
     parser.add_argument('--lr', type=float, default=.001)
     parser.add_argument('--gpu_ids', type=str, default='0')
+    parser.add_argument('--checkpoint_loc', type=str, default='./checkpoint/latest_model.ckpt')
     parser.add_argument('--num_experts', type=int, default=16)
     parser.add_argument('--training', type=bool, default=True)
     parser.add_argument('--testing', type=bool, default=False)
-    parser.add_argument('--validation', type=bool, default=False)
     args = parser.parse_args()
     return args
 
@@ -34,8 +33,6 @@ def main():
         train(args)
     if args.testing:
         test(args)
-    if args.validation:
-        validate(args)
 
 
 if __name__ == '__main__':

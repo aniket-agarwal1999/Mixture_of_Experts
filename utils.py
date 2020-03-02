@@ -12,6 +12,11 @@ def cuda(xs, gpu_id):
             return [x.cuda(int(gpu_id[0])) for x in xs]
     return xs
 
+def load_checkpoint(ckpt_path, map_location='cpu'):
+    ckpt = torch.load(ckpt_path, map_location=map_location)
+    print(' [*] Loading checkpoint from %s succeed!' % ckpt_path)
+    return ckpt
+
 
 def get_dataset(dataset ,transform = None, train_split=0.8):
 
@@ -54,4 +59,12 @@ def get_transformation(dataset):
 
 
 def EM_loss():
-    
+    '''
+    I am still not able to get the notation specified in the paper as it is a bit confusing how they have
+    calculated the posterior probabilities.
+    Also the updation step they have used is just simply iteration based rather than gradient based which
+    is also pretty weird.
+
+    Also Cross Entropy would also work in this particular case as the model is a classification model and
+    I think that the gradient based method also solves the MLE optimization problem as specified in the paper.
+    '''
